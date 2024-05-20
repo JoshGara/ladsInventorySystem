@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MongoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StockController;
 use Illuminate\Foundation\Application;
@@ -22,6 +23,7 @@ Route::get('/', function (){
 });
 
 Route::resource('stock', StockController::class);
+Route::resource('mongo',MongoController::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -9,12 +9,20 @@
           ></v-avatar>
   
           <v-btn
-            v-for="link in links"
-            :key="link"
-            :text="link"
+            href="/"
+            text="Dashboard"
             variant="text"
           ></v-btn>
-  
+          <v-btn
+            href="/stock"
+            text="Manage Stock"
+            variant="text"
+          ></v-btn>
+          <v-btn
+            href="/mongo"
+            text="Orders"
+            variant="text"
+          ></v-btn>
           <v-spacer></v-spacer>
   
           <v-responsive max-width="160">
@@ -38,12 +46,20 @@
               <v-sheet rounded="lg">
                 <v-list rounded="lg">
                   <v-list-item
-                    v-for="side in sidenav"
-                    :key="side"
-                    :title="side"
+                    href="/"
+                    title="Dashboard"
                     link
                   ></v-list-item>
-  
+                  <v-list-item
+                    href="/stock"
+                    title="Manage Stock"
+                    link
+                  ></v-list-item>
+                  <v-list-item
+                    href="/mongo"
+                    title="Orders"
+                    link
+                  ></v-list-item>
                   <v-divider class="my-2"></v-divider>
   
 
@@ -73,7 +89,8 @@
   import SuccessMessage from '../components/Stock/SuccessMessage.vue';
     const links = [
       'Dashboard',
-      'Stock'
+      'Stock',
+      'Orders'
     ]
     const sidenav = [
         'Dashboard',

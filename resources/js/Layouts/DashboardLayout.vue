@@ -19,7 +19,7 @@
             variant="text"
           ></v-btn>
           <v-btn
-            href="/mongo"
+            href="/order"
             text="Orders"
             variant="text"
           ></v-btn>
@@ -56,7 +56,7 @@
                     link
                   ></v-list-item>
                   <v-list-item
-                    href="/mongo"
+                    href="/order"
                     title="Orders"
                     link
                   ></v-list-item>
@@ -67,10 +67,8 @@
               </v-sheet>
             </v-col>
               
-            <v-col>
-                
-                  <SuccessMessage v-if="$page.props.flash.message">{{ $page.props.flash.message }}</SuccessMessage>
-              
+            <v-col>  
+              <SuccessMessage v-if="$page.props.flash.message">{{ $page.props.flash.message }}</SuccessMessage>         
               <v-sheet
                 min-height="70vh"
                 rounded="lg"

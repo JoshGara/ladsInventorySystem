@@ -70,9 +70,9 @@ const orderForm = useForm({
     sold: '',
   });
 const form = () => {
-  orderForm.post('mongo', {
+  orderForm.post('order', {
     onSuccess: () => {
-      form.reset();
+      orderForm.reset();
     }
   });
 };

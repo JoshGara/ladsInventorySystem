@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\MongoController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StockController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StockController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', function (){
 });
 
 Route::resource('stock', StockController::class);
-Route::resource('mongo',MongoController::class);
+Route::resource('order', OrderController::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -36,3 +37,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+

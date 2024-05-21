@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
-use App\Models\Stock;
-use App\Models\MongoModel;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class MongoController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,20 +34,26 @@ class MongoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, MongoModel $mongomodel)
+    public function store(Request $request)
     {
+        $request->validate([
+            "product" => "required|string|max:255",
+            "orderno" => "required|string",
+            "billno" => "required|string",
+            "sold" => "required|string",
+        ]);
+    
+        $order = new Order();
+        $order->product = $request->product;
+        $order->orderno = $request->orderno;
+        $order->billno = $request->billno;
+        $order->sold = $request->sold;
+    
+        $order->save();
+    
         
-            $mongomodel = new MongoModel;
-            $mongomodel->product = $request->product;
-            $mongomodel->orderno = $request->orderno;
-            $mongomodel->billno = $request->billno;
-            $mongomodel->sold = $request->sold;
-            $mongomodel->create();
-   
-          
-          
-          return redirect()->route('mongo.index')
-          ->with('message', 'Order added successfully');
+        return redirect()->route('order.index')->
+        with('message', 'Order created successfully');
     }
 
     /**
